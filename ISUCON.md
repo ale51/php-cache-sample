@@ -99,14 +99,15 @@ inner join advertisement_frame on advertise.ad_id = advertisement_frame.ad_id
 
 ただ、advertisementテーブルやadvertisement_frameテーブルを更新するのは管理画面で行われるはずなので、
 その際にキャッシュを削除すれば良い。
-### 3-4-2. 時間
+
+#### 3-4-2. 時間
 時間によって、select文の結果が異なるので、キャッシュすると意図しないデータを表示させてしまう。
 ```sql
 select ad_id, ad_name, affiliate_link from advertisement where start_date >= now() and end_date >= now()
 ```
 10秒などの時間であれば、キャッシュして良いかもしれない。(吉本さん・高崎に確認)
 
-### 3-4-3. ランダム
+#### 3-4-3. ランダム
 (省略)
 10秒などの時間であれば、キャッシュして良いかもしれない。(吉本さん・高崎に確認)
 
